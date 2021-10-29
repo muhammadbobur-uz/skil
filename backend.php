@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require '../config.php';
 
 class analiz {
 
@@ -21,9 +21,14 @@ class analiz {
             echo '<pre>' . print_r($prnt, 1) . '</pre>';
         }
     }
-    
+
     public function create() {
         $sql = "create table examlpe(id int(11), name varchar(35), old int(11))";
+        $res = $this->con->query($sql);
+    }
+
+    public function insert($id, $name, $phone) {
+        $sql = "insert into example values({$id},{$name},{$phone})";
         $res = $this->con->query($sql);
     }
 
@@ -47,6 +52,8 @@ class analiz {
 
 $data = new analiz();
 echo $data->select();
+$data3 = new analiz();
+$data3->insert(15,'TOJI',8395)
 //$data2 = new analiz();
 //$data2->send_sms('998909968395', 'A3')
 //var_dump($prnt)
