@@ -23,12 +23,13 @@ class analiz {
     }
 
     public function create() {
-        $sql = "create table examlpe(id int(11), name varchar(35), old int(11))";
+        $sql = "create table example (id int(11), name varchar(35), phone varchar(30))";
         $res = $this->con->query($sql);
     }
 
     public function insert($id, $name, $phone) {
-        $sql = "insert into example values({$id},{$name},{$phone})";
+        echo $id . '<br>' . $name . '<br>' . $phone;
+        $sql = "insert into example values($id,'$name','$phone')";
         $res = $this->con->query($sql);
     }
 
@@ -53,7 +54,7 @@ class analiz {
 $data = new analiz();
 echo $data->select();
 $data3 = new analiz();
-$data3->insert(15,'TOJI',8395)
+$data3->insert(45, 'Ali', +998911234567)
 //$data2 = new analiz();
 //$data2->send_sms('998909968395', 'A3')
 //var_dump($prnt)
