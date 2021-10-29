@@ -1,0 +1,2 @@
+# skil
+Domain papkadagi fayllarim
