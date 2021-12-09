@@ -33,21 +33,6 @@ class analiz {
         $res = $this->con->query($sql);
     }
 
-    public function send_sms($phone, $message) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->secret->url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
-            "login" => $this->secret->login,
-            "pwd" => $this->secret->pwd,
-            "CgPN" => $this->secret->CgPN,
-            "CdPN" => $phone,
-            "text" => $message
-                        ], JSON_UNESCAPED_UNICODE));
-        $result = json_decode(curl_exec($ch), true);
-        curl_close($ch);
-    }
 
 }
 
